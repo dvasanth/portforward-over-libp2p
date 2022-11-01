@@ -19,7 +19,7 @@ From the  directory run the following:
 
 ## Usage
 
-First run the program as follows to the machine where you need to run the proxy server (first machine). You may need to allow udp port 12000 to make this peer reachable over internet.
+First run the program as follows to the machine where you need to run the proxy server (first machine). You may need to allow udp port 12000 in (UFW) firewall to make this peer reachable over internet.
 
 ```sh
 > ./portforward

@@ -19,26 +19,19 @@ From the  directory run the following:
 
 ## Usage
 
-First run the program as follows to the machine where you need to run the proxy server (first machine). You may need to allow udp port 12000 in (UFW) firewall to make this peer reachable over internet.
+First run the program as follows to the machine where you need to run the proxy server (first machine). You may need to allow udp port 12007 in (UFW) firewall to make this peer reachable over internet.
 
 ```sh
 > ./portforward
-libp2p-peer public addresses:
- /ip4/<public-address>/udp/12000/quic/ipfs/<first-machine-peer-id>
+This host proxy server accessible over internet using peer ID
+ <first-machine-peer-id>
 
-libp2p-peer private addresses:
- /ip4/127.0.0.1/udp/12000/quic/ipfs/<first-machine-local-peer-id>
 ```
 
 Then run the program in second machine which will need to use the proxy server in above program.
 
 ```
-> .\portforward.exe -d /ip4/<public-address>/udp/12000/quic/ipfs/<first-machine-peer-id-reacable-over internet>
-libp2p-peer public addresses:
- /ip4/171.50.208.188/udp/12000/quic/ipfs/<second-machine-peer-id>
-
-libp2p-peer private addresses:
- /ip4/127.0.0.1/udp/12000/quic/ipfs/<second-machine-local-peer-id>
+> .\portforward.exe -d <first-machine-peer-id-reacable-over internet>
 Change Browser proxy setting to 127.0.0.1: 8080
 ```
 
@@ -48,9 +41,6 @@ Now you can see the proxy setting of your browser to 127.0.0.1:8080. All the req
 Above steps will make the proxy server exposed to the p2p network. To allow the proxy server to be accessed by only known peers. You can add the second machine peer id to the accepted peer list. Here is the command to be run in first machine to accept only from selected peers:
 
 > ./portforward -a <second-machine-peer-id>
-libp2p-peer public addresses:
- /ip4/<public-address>/udp/12000/quic/ipfs/<first-machine-peer-id>
-
-libp2p-peer private addresses:
- /ip4/127.0.0.1/udp/12000/quic/ipfs/<first-machine-local-peer-id>
+This host proxy server accessible over internet using peer ID
+ <first-machine-peer-id>
 ```

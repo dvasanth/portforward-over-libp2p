@@ -40,7 +40,11 @@ Now you can see the proxy setting of your browser to 127.0.0.1:8080. All the req
 ## Security
 Above steps will make the proxy server exposed to the p2p network. To allow the proxy server to be accessed by only known peers. You can add the second machine peer id to the accepted peer list. Here is the command to be run in first machine to accept only from selected peers:
 
+```
 > ./portforward -a <second-machine-peer-id>
 This host proxy server accessible over internet using peer ID
  <first-machine-peer-id>
 ```
+
+## Portforwarding for any network apps
+This application enables port forwarding for local socket applications to remote machines, functioning similarly to SSH port forwarding. However, instead of using SSH, it establishes connections over a secure channel provided by libp2p. Just replace the local and remote ports matching to your application.
